@@ -17,7 +17,7 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 5vh 8vw;
+        padding: 5vh 8vw 120px 8vw; /* Aumentato padding-bottom a 120px */
         animation: fade .4s ease;
     }
     .slide.active { display: flex; }
@@ -36,19 +36,19 @@
     .accent { color: #3498db; }
     .rule { width: 120px; height: 4px; background: #3498db; margin: 2em auto; border-radius: 2px; }
 
-.cards {
+    .cards {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
-        gap: 14px;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+        gap: 16px;
         max-width: 1100px;
-        margin-top: 1.5em;
+        margin-top: 2em;
         width: 100%;
     }
    
     .card {
         background: #fff;
         border-radius: 12px;
-        padding: 25px;
+        padding: 20px;
         box-shadow: 0 4px 12px rgba(0,0,0,.08);
         border-top: 6px solid #3498db;
         text-align: left;
@@ -56,9 +56,9 @@
     .card:nth-child(2) { border-top-color: #e67e22; }
     .card:nth-child(3) { border-top-color: #27ae60; }
     .card:nth-child(4) { border-top-color: #9c27b0; }
-    .card .emoji { font-size: 2.5rem; display: block; margin-bottom: .3em; }
-    .card h3 { font-size: 1.3rem; margin-bottom: .4em; color: #2c3e50; }
-    .card p  { font-size: 1rem; color: #666; }
+    .card .emoji { font-size: 2rem; display: block; margin-bottom: .3em; }
+    .card h3 { font-size: 1.2rem; margin-bottom: .4em; color: #2c3e50; }
+    .card p  { font-size: .95rem; color: #666; }
     
     .lista-negativa { list-style: none; text-align: left; max-width: 700px; }
     .lista-negativa li { font-size: clamp(1.1rem, 2.5vw, 1.7rem); margin: .5em 0; }
@@ -72,15 +72,21 @@
     }
 
     /* Adattamento mobile */
- @media (max-width: 700px) {
-        .slide { padding: 3vh 5vw 100px 5vw; justify-content: flex-start; padding-top: 8vh; }
-        h2   { font-size: clamp(1.4rem, 6vw, 2rem); }
-        .card { padding: 16px; }
-        .card .emoji { font-size: 2rem; }
+    @media (max-width: 700px) {
+        .slide { padding: 8vh 5vw 100px 5vw; justify-content: flex-start; }
+        h2   { font-size: clamp(1.4rem, 6vw, 2rem); margin-bottom: 1.5em; }
+        .cards { margin-top: 1em; gap: 12px; }
+        .card { padding: 14px; }
+        .card .emoji { font-size: 1.8rem; }
         .card h3 { font-size: 1.1rem; }
-        .card p  { font-size: .95rem; }
+        .card p  { font-size: .9rem; }
+        
+        /* Nasconde i pulsanti su mobile per evitare sovrapposizioni */
+        .nav { display: none; }
+        .counter { bottom: 15px; font-size: .8rem; }
+        .hint { display: none; }
     }
-   
+    
     /* Navigazione */
     .nav {
         position: fixed; bottom: 20px; right: 25px;
