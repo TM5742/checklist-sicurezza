@@ -6,7 +6,7 @@
 <title>«Io che ci faccio?» — Lezione per principianti</title>
 <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; overflow: hidden; font-family: system-ui, -apple-system, sans-serif; }
+    html, body { height: 100%; overflow-x: hidden; overflow-y: auto; font-family: system-ui, -apple-system, sans-serif; }
     
     .slide {
         position: absolute;
@@ -35,14 +35,16 @@
     .quote { font-family: Georgia, serif; font-style: italic; }
     .accent { color: #3498db; }
     .rule { width: 120px; height: 4px; background: #3498db; margin: 2em auto; border-radius: 2px; }
-    
-    .cards {
+
+.cards {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+        gap: 14px;
         max-width: 1100px;
-        margin-top: 2em;
+        margin-top: 1.5em;
+        width: 100%;
     }
+   
     .card {
         background: #fff;
         border-radius: 12px;
@@ -68,7 +70,17 @@
         margin: .4em 0;
         color: #fff;
     }
-    
+
+ /* Adattamento mobile */
+    @media (max-width: 700px) {
+        .slide { padding: 3vh 5vw; justify-content: flex-start; padding-top: 8vh; }
+        h2   { font-size: clamp(1.4rem, 6vw, 2rem); }
+        .card { padding: 16px; }
+        .card .emoji { font-size: 2rem; }
+        .card h3 { font-size: 1.1rem; }
+        .card p  { font-size: .95rem; }
+    }
+   
     /* Navigazione */
     .nav {
         position: fixed; bottom: 20px; right: 25px;
