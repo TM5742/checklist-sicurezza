@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>«Io che ci faccio?» — Lezione per principianti</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; overflow: hidden; font-family: system-ui, -apple-system, sans-serif; }
+    
+    .slide {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 5vh 8vw;
+        animation: fade .4s ease;
+    }
+    .slide.active { display: flex; }
+    @keyframes fade { from {opacity: 0} to {opacity: 1} }
+
+    h1 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.2; }
+    h2 { font-size: clamp(1.6rem, 3.5vw, 2.6rem); margin-bottom: 1em; }
+    p  { font-size: clamp(1.1rem, 2.2vw, 1.6rem); line-height: 1.5; max-width: 900px; }
+    
+    .dark  { background: #2c3e50; color: #ecf0f1; }
+    .light { background: #ffffff; color: #2c3e50; }
+    .soft  { background: #f8f9fa; color: #2c3e50; }
+    .warm  { background: #fff8f0; color: #5d4037; }
+    
+    .quote { font-family: Georgia, serif; font-style: italic; }
+    .accent { color: #3498db; }
+    .rule { width: 120px; height: 4px; background: #3498db; margin: 2em auto; border-radius: 2px; }
+    
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        max-width: 1100px;
+        margin-top: 2em;
+    }
+    .card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(0,0,0,.08);
+        border-top: 6px solid #3498db;
+        text-align: left;
+    }
+    .card:nth-child(2) { border-top-color: #e67e22; }
+    .card:nth-child(3) { border-top-color: #27ae60; }
+    .card:nth-child(4) { border-top-color: #9c27b0; }
+    .card .emoji { font-size: 2.5rem; display: block; margin-bottom: .3em; }
+    .card h3 { font-size: 1.3rem; margin-bottom: .4em; color: #2c3e50; }
+    .card p  { font-size: 1rem; color: #666; }
+    
+    .lista-negativa { list-style: none; text-align: left; max-width: 700px; }
+    .lista-negativa li { font-size: clamp(1.1rem, 2.5vw, 1.7rem); margin: .5em 0; }
+    
+    .tre-cose { list-style: none; }
+    .tre-cose li {
+        font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+        font-weight: bold;
+        margin: .4em 0;
+        color: #fff;
+    }
+    
+    /* Navigazione */
+    .nav {
+        position: fixed; bottom: 20px; right: 25px;
+        display: flex; gap: 10px; z-index: 10;
+    }
+    .nav button {
+        font-size: 1.4rem; padding: 8px 18px;
+        border: none; border-radius: 50px; cursor: pointer;
+        background: rgba(0,0,0,.25); color: #fff;
+    }
+    .nav button:hover { background: rgba(0,0,0,.45); }
+    .counter {
+        position: fixed; bottom: 30px; left: 25px;
+        font-size: 1rem; opacity: .5; z-index: 10;
+    }
+    .hint {
+        position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+        font-size: .85rem; opacity: .4; z-index: 10;
+    }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1 -->
+<section class="slide light active">
+    <p style="color:#888; font-size:1.1rem;">La domanda più bella del corso</p>
+    <div class="rule"></div>
+    <h1 class="quote">«Mi hanno regalato uno smartphone,<br>ma io che ci faccio?»</h1>
+    <div class="rule"></div>
+    <p>Risposta onesta:</p>
+    <p style="font-weight:bold; margin-top:.5em;">fare le stesse cose di sempre,<br>ma più vicine.</p>
+</section>
+
+<!-- SLIDE 2 -->
+<section class="slide soft">
+    <h2>Solo quattro cose.<br>Il resto potete ignorarlo.</h2>
+    <div class="cards">
+        <div class="card">
+            <span class="emoji">👨‍👩‍👧</span>
+            <h3>Sentire e vedere chi amiamo</h3>
+            <p>Videochiamata ai nipoti. Gratis, con la loro faccia sullo schermo.</p>
+        </div>
+        <div class="card">
+            <span class="emoji">🆘</span>
+            <h3>Chiedere aiuto subito</h3>
+            <p>Figlio, vicino, medico, farmacia. Contatti di emergenza sulla schermata di blocco.</p>
+        </div>
+        <div class="card">
+            <span class="emoji">🗣️</span>
+            <h3>Avere le informazioni</h3>
+            <p>Meteo, orari autobus, notizie. Si chiede a voce, senza scrivere nulla.</p>
+        </div>
+        <div class="card">
+            <span class="emoji">⏰</span>
+            <h3>Non dimenticare</h3>
+            <p>Sveglia per le medicine, fotografie di ricette e orari.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 3 -->
+<section class="slide light">
+    <h2>Perché serve restare autonomi</h2>
+    <p style="color:#c0392b; margin-bottom:1.5em;">❌ Prima:<br>«Devo aspettare che mio figlio torni<br>per chiedergli come si legge questa lettera».</p>
+    <p style="color:#27ae60;">✅ Adesso:<br>fotografo la lettera, gliela mando,<br>e lui risponde quando può.</p>
+    <div class="rule"></div>
+    <p style="font-weight:bold;">Lo smartphone non vi rende dipendenti<br>dalla tecnologia: vi rende meno dipendenti dagli altri.</p>
+</section>
+
+<!-- SLIDE 4 -->
+<section class="slide warm">
+    <h2 style="color:#b9770e;">Avete 80 anni: avete diritti speciali</h2>
+    <ul class="lista-negativa">
+        <li>✗ Non dovete avere Instagram</li>
+        <li>✗ Non dovete guardare video tutto il giorno</li>
+        <li>✗ Non dovete scrivere messaggi a sconosciuti</li>
+        <li>✗ Non dovete capire tutte le funzioni</li>
+    </ul>
+    <div class="rule" style="background:#e67e22;"></div>
+    <p style="font-weight:bold;">Siete autorizzati a usarlo solo per ciò che vi serve davvero.</p>
+    <p style="opacity:.6; margin-top:.5em;">Il resto può aspettare. O non arrivare mai.</p>
+</section>
+
+<!-- SLIDE 5 -->
+<section class="slide dark">
+    <p style="font-size:1.4rem;">Se vi insegnano TRE cose,<br>avete già imparato tutto:</p>
+    <ul class="tre-cose">
+        <li>📞 Rispondere quando chiamano</li>
+        <li>☎️ Chiamare chi può aiutarvi</li>
+        <li>📷 Mandare una fotografia</li>
+    </ul>
+    <div class="rule"></div>
+    <p class="quote" style="opacity:.8;">Il resto lo imparerete solo<br>se un giorno vi farà comodo.</p>
+</section>
+
+<!-- Comandi -->
+<div class="counter"><span id="n">1</span> / 5</div>
+<div class="hint">← → per navigare · F11 per schermo intero</div>
+<div class="nav">
+    <button onclick="move(-1)">‹</button>
+    <button onclick="move(1)">›</button>
+</div>
+
+<script>
+let i = 0;
+const slides = document.querySelectorAll('.slide');
+function show(n) {
+    slides[i].classList.remove('active');
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides[i].classList.add('active');
+    document.getElementById('n').textContent = i + 1;
+}
+function move(d) { show(i + d); }
+document.addEventListener('keydown', e => {
+    if (['ArrowRight',' ','PageDown'].includes(e.key)) { e.preventDefault(); move(1); }
+    if (['ArrowLeft','PageUp'].includes(e.key))       { e.preventDefault(); move(-1); }
+});
+document.body.addEventListener('click', e => {
+    if (!e.target.closest('.nav')) move(1);
+});
+</script>
+</body>
+</html>
